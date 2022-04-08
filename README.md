@@ -1,2 +1,2 @@
 # gas-website-app
-Webサイト作成
+GASとVue.jsでWebサイト作成
