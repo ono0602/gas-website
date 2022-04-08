@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <!-- cssファイル強制読み込み -->
+  <?!= HtmlService.createHtmlOutputFromFile('css').getContent(); ?>
+</head>
+
+<body>
+  <nav class='navbar navbar-light bg-light' id='nav'>
+    <div class='p-3'>
+      <a class='navbar-brand' :href="'https://script.google.com/macros/s/'+mainUrlId+'/dev'">
+        nav name
+      </a>
+    </div>
+
+    <div class="d-flex flex-row-reverse bd-highlight">
+      <div class="p-2 bd-highlight">
+        <a class='navbar-brand' :href="'https://docs.google.com/forms/d/'+formUrlId+'/viewform?edit_requested=true'"
+          target='_blank'>
+          nav name
+        </a>
+      </div>
+
+      <div class="p-2 bd-highlight">
+        <a class='navbar-brand' :href="'https://script.google.com/macros/s/'+aboutUrlId+'/exec'" target='_blank'>
+          nav name
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class='pt-5 container' id='header' v-if='show'>
+    <h1>{{h1Title}}</h1>
+    <ul>
+      <li v-for='h1List in h1Lists'>{{h1List[1]}}</li>
+    </ul>
+  </div>
+
+  <div class='p-5 container' id='content'>
+    <h3>{{h3Title1}}</h3>
+    <p>{{p1}}</p>
+  </div>
+
+  <div class='px-5 container' id='can'>
+    <h3>{{h3Title2}}</h3>
+    <ol>
+      <li v-for='h3List in h3Lists'>{{h3List[5]}}</li>
+    </ol>
+  </div>
+
+  <div class='container' id='combination'>
+    <h5>{{h5Title}}</h5>
+    <ul>
+      <li v-for='h5List in h5Lists'>{{h5List[7]}}</li>
+    </ul>
+    <p>{{p2}}</p>
+  </div>
+
+  <!-- jsファイル強制読み込み -->
+  <?!= HtmlService.createHtmlOutputFromFile('js').getContent(); ?>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@latest/dist/vue.js"></script>
+<script>
+  // スプレッドシートのデータ取得に成功したら、initializeVueを実行
+  google.script.run.withSuccessHandler(initializeVue).getSpreadsheetValues();
+
+function initializeVue(ssValues){
+ssValues.shift();//表題（１行目）削除
+ 
+  let nav = new Vue({
+    el:'#nav',
+    data:{
+      mainUrlId:ssValues[][],
+      formUrlId:ssValues[][],
+      aboutUrlId:ssValues[][]
+    }
+  });
+
+  let header = new Vue({
+    el:'#header',
+    data:{
+    h1Title:ssValues[][],
+      h1Lists:ssValues
+    }
+  });
+    
+  let content = new Vue({
+    el:'#content',
+    data:{
+      h3Title1:ssValues[][],
+      p1:ssValues[][],
+      p1_2:ssValues[][]
+    }
+  });
+  
+  let can = new Vue({
+    el:'#can',
+    data:{
+      h3Title2:ssValues[][],
+      h3Lists:ssValues
+    }
+  });
+  
+  let combination = new Vue({
+    el:'#combination',
+    data:{
+      h5Title:ssValues[][],
+      h5Lists:ssValues,
+      p2:ssValues[][]
+    }
+  });  
+}
+</script>
